@@ -29,7 +29,7 @@ public class MyController {
 	@PostMapping("/api/my/change")
 	public ResponseEntity<?> updateUser(
 			@ModelAttribute UpdateUserDTO dto,
-			@RequestParam("userProfile") MultipartFile userProfile) {
+			@RequestParam(value = "userProfile", required = false) MultipartFile userProfile) {
 		return service.updateUser(dto,userProfile);
 	}
 	
