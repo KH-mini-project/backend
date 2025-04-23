@@ -3,10 +3,8 @@ package com.kh.banana.dto.response;
 import com.kh.banana.entity.PostEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 public class UserPostLikeResponseDTO {
 

@@ -3,13 +3,19 @@ package com.kh.banana.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
 @Table(name="user")
 @Entity
 public class UserEntity {
@@ -18,47 +24,40 @@ public class UserEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="user_id", nullable = false, unique = true)
-	private String userId;
+	@Column(nullable = false,unique = true)
+	private String userAccount;
 
-	@Column(name="user_pass", nullable = false)
+	@Column(nullable = false)
 	private String userPass;
 
-	@Column(name="user_nick", nullable = false)
+	@Column(nullable = false)
 	private String userNick;
 
 	private String userProfileImage;
 	private String userAbout;
 	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<PostEntity> postList = new ArrayList<>();
 
-	@OneToMany(mappedBy = "follower", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "follower")
 	private List<FollowEntity> follower = new ArrayList<>();
 
-	@OneToMany(mappedBy = "followed", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "followed")
 	private List<FollowEntity> followed = new ArrayList<>();
 
 
-	public static UserEntity createUserForLogin(String userId, String userPass) {
+	public static UserEntity createUserForLogin(String userAccount, String userPass) {
 		UserEntity userEntity = new UserEntity();
-		userEntity.userId = userId;
+		userEntity.userAccount = userAccount;
 		userEntity.userPass = userPass;
 		return userEntity;
 	}
 
-	public static UserEntity createUserForSignup(String userId, String userPass, String userNick) {
+	public static UserEntity createUserForSignup(String userAccount, String userPass, String userNick) {
 		UserEntity userEntity = new UserEntity();
-		userEntity.userId = userId;
+		userEntity.userAccount = userAccount;
 		userEntity.userPass = userPass;
 		userEntity.userNick = userNick;
 		return userEntity;
-	}
-
-	public UserEntity(String userId, String userPass, String userNick, String userProfileImage) {
-		this.userId = userId;
-		this.userPass = userPass;
-		this.userNick = userNick;
-		this.userProfileImage = userProfileImage;
 	}
 }
