@@ -28,7 +28,7 @@ public class DefaultMypageService implements MypageService{
 	
 	private final UserRepository userRepo;
 	private final PostRepository postRepo;
-	 private final S3ServiceUtil s3ServiceUtil;
+	private final S3ServiceUtil s3ServiceUtil;
 
 	@Override
 	public ResponseEntity<?> findUser(String userId) {
