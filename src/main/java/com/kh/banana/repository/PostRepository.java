@@ -3,7 +3,7 @@ package com.kh.banana.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-<<<<<<< HEAD
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -15,11 +15,7 @@ import jakarta.persistence.Column;
 import java.util.List;
 import java.util.Optional;
 
-=======
-import com.kh.banana.entity.PostEntity;
-import com.kh.banana.entity.UserEntity;
 
->>>>>>> 3861dcf7dd0362bfdd998bffa75f8d7fd93e1637
 
 public interface PostRepository extends JpaRepository<PostEntity, Long>{
 
