@@ -9,6 +9,6 @@ import com.kh.banana.entity.UserEntity;
 
 public interface PostRepository extends JpaRepository<PostEntity, Long>{
 
-	List<PostEntity> findByUser(UserEntity entity);
+	List<PostEntity> findByUserOrderByIdDesc(UserEntity entity);
 	
 }

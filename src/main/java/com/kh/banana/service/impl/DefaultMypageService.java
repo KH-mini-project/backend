@@ -68,7 +68,7 @@ public class DefaultMypageService implements MypageService{
 	@Override
 	public ResponseEntity<?> findUserPost(String userId) {
 		UserEntity entity = userRepo.findByUserId(userId);
-		 List<PostEntity> posts = postRepo.findByUser(entity);
+		 List<PostEntity> posts = postRepo.findByUserOrderByIdDesc(entity);
 		 List<PostSimpleResponseDTO> result = posts.stream().map(PostSimpleResponseDTO::fromEntity).collect(Collectors.toList());
 		return ResponseEntity.ok(result);
 	}
