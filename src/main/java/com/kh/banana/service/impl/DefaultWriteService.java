@@ -1,10 +1,7 @@
 package com.kh.banana.service.impl;
 
-import java.util.Optional;
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import com.kh.banana.dto.request.PostRequestDTO;
 import com.kh.banana.entity.UserEntity;
 import com.kh.banana.repository.PostRepository;

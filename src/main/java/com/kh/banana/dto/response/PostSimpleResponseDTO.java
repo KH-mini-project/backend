@@ -16,11 +16,11 @@ public class PostSimpleResponseDTO {
     private Long postId;
     private String postTitle;
     private String postContent;
-    private String imageUrl;
+    private String thumbnail;
     private String userProfileImage;
     private String userNick;
     private int likeCount;
-    private LocalDateTime createDate;
+    private LocalDateTime createDateTime;
     private Long userId;
 
 

@@ -3,7 +3,6 @@ package com.kh.banana.controller;
 import com.kh.banana.dto.request.AccountCheckDTO;
 import com.kh.banana.dto.request.UserLoginRequestDTO;
 import com.kh.banana.dto.request.UserSignupRequestDTO;
-import com.kh.banana.dto.response.UserProfileResponseDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
