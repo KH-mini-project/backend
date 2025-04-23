@@ -17,7 +17,7 @@ public class ReadPageController {
     private final PostDetailService postDetailService;
 
     @GetMapping("/read/{postId}")
-    public ResponseEntity<PostDetailResponseDTO> getPostDetailPage(@PathVariable Long postId) {
+    public ResponseEntity<PostDetailResponseDTO> getPostDetailPage(@PathVariable(value = "postId") Long postId) {
         PostDetailResponseDTO post = postDetailService.getPostDetail(postId);
         return ResponseEntity.ok(post);
     }

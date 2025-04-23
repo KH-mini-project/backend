@@ -17,7 +17,8 @@ public class UserSignupRequestDTO {
     // 서비스에서 toEntity() 메소드 호출해서 엔티티로 변환
     // createUserForSignup() 메서드는 UserEntity 객체를 생성하면서 DTO 에서 받은 값을
     // UserEntity 생성자에 전달하여 UserEntity 객체에 값을 할당
-    public UserEntity toEntity(UserSignupRequestDTO dto) {
-        return UserEntity.createUserForSignup(dto.getUserId(), dto.getUserPass(), dto.getUserNick());
+    public UserEntity toEntity(String encodedPassword) {
+        return UserEntity.createUserForSignup(this.userId, encodedPassword, this.userNick);
     }
+
 }
