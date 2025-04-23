@@ -1,12 +1,9 @@
 package com.kh.banana.service.impl;
 
-import java.util.Optional;
-
 import com.kh.banana.dto.request.AccountCheckDTO;
 import com.kh.banana.dto.request.UserLoginRequestDTO;
 import com.kh.banana.dto.request.UserSignupRequestDTO;
 import com.kh.banana.dto.response.UserLoginResponseDTO;
-import com.kh.banana.dto.response.UserProfileResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 

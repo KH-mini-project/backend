@@ -1,14 +1,8 @@
 package com.kh.banana.entity;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
-import com.kh.banana.dto.response.PostDetailResponseDTO;
-import com.kh.banana.dto.response.PostSimpleResponseDTO;
 import jakarta.persistence.*;
-import jakarta.websocket.Decoder.Text;
 import lombok.*;
 
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
