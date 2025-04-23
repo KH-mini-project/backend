@@ -19,7 +19,7 @@ import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<PostEntity, Long>{
 
-	List<PostEntity> findByUser(UserEntity entity);
+	List<PostEntity> findByUserOrderByIdDesc(UserEntity entity);
 	
 	//PostEntity, postContent에 입력된 키워드 기준으로 대소문자 상관없이 검색
 	//@Column(columnDefinition = "LONGTEXT",nullable = false)
