@@ -61,4 +61,14 @@ public class UserEntity {
 		this.userNick = userNick;
 		this.userProfileImage = userProfileImage;
 	}
+	public void updateUserNickInfo(String userNick) {
+	    this.userNick = userNick;
+	}
+	public void updateUserAboutInfo(String userAbout) {
+	    this.userAbout = userAbout;
+	}
+
+	public void updateUserProfileo(String imageUrl) {
+		this.userProfileImage = imageUrl;
+	}
 }
