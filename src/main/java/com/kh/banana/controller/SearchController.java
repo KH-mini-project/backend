@@ -25,7 +25,6 @@ public class SearchController {
 	public List<PostSimpleResponseDTO> getAllPosts(){
 		return searchService.getAllPosts();
 	}
-	
 	//키워드 검색
 	//@RequestBody json -> java 객체로 변환
 	@PostMapping("/keyword")
