@@ -7,6 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.kh.banana.dto.request.UpdateUserDTO;
 
 public interface MypageService {
+//
 
 	ResponseEntity<?> findUser(String userId);
 
