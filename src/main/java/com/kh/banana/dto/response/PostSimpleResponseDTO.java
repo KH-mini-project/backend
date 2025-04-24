@@ -21,7 +21,8 @@ public class PostSimpleResponseDTO {
     private String userNick;
     private int likeCount;
     private LocalDateTime createDateTime;
-    private Long userId;
+    private Long id;
+    private String userId;
 
 
 
@@ -36,7 +37,8 @@ public class PostSimpleResponseDTO {
 
                 0, // 좋아요 수 (이건 추후 로직에서 처리)
                 entity.getCreateDateTime(),
-                entity.getUser().getId() // 작성자 ID
+                entity.getUser().getId(), // 작성자 ID
+                entity.getUser().getUserId()
         );
     }
 }

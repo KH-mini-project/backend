@@ -25,7 +25,13 @@ public class S3ServiceUtil {
     private String region;
 
     public String uploadFile(MultipartFile file) throws IOException {
-        String fileName = UUID.randomUUID() + "-" + file.getOriginalFilename();
+    	
+    	String originalFileName = file.getOriginalFilename();
+    	
+    	if (originalFileName != null) {
+    	    originalFileName = originalFileName.replaceAll("\\s+", ""); // 모든 공백 제거
+    	}
+        String fileName = UUID.randomUUID() + "-" + originalFileName;
 
         PutObjectRequest putObjectRequest = PutObjectRequest.builder()
             .bucket(bucket)
