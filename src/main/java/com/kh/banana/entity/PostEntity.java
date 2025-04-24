@@ -5,7 +5,7 @@ import java.util.List;
 import jakarta.persistence.*;
 import lombok.*;
 
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Setter
 @Table(name="post")
@@ -15,7 +15,6 @@ public class PostEntity extends BaseEntity{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
 
 	@Lob
 	@Column(columnDefinition = "LONGTEXT")

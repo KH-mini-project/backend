@@ -35,7 +35,6 @@ public class PostSimpleResponseDTO {
                 entity.getThumbnail(),
                 entity.getUser().getUserProfileImage(), // 작성자 프로필 이미지
                 entity.getUser().getUserNick(), // 작성자 닉네임
-               
                 0, // 좋아요 수 (이건 추후 로직에서 처리)
                 (long) entity.getComment().size(), //댓글 수 카운트
                 entity.getCreateDateTime(),

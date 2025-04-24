@@ -8,6 +8,5 @@ public interface SearchService {
 	List<PostSimpleResponseDTO> getAllPosts();
 	
 	List<PostSimpleResponseDTO> searchPosts(String keyword);
-	
-	
+
 }

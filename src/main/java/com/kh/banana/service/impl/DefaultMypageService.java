@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.kh.banana.dto.response.UserProfileResponseDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -72,5 +73,4 @@ public class DefaultMypageService implements MypageService{
 		 List<PostSimpleResponseDTO> result = posts.stream().map(PostSimpleResponseDTO::fromEntity).collect(Collectors.toList());
 		return ResponseEntity.ok(result);
 	}
-	
 }

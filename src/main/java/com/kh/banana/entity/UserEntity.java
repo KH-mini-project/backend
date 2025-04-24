@@ -7,9 +7,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@Setter
 @Table(name="user")
 @Entity
 public class UserEntity {
@@ -32,13 +31,6 @@ public class UserEntity {
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<PostEntity> postList = new ArrayList<>();
-
-	@OneToMany(mappedBy = "follower", fetch = FetchType.LAZY)
-	private List<FollowEntity> follower = new ArrayList<>();
-
-	@OneToMany(mappedBy = "followed", fetch = FetchType.LAZY)
-	private List<FollowEntity> followed = new ArrayList<>();
-
 
 	public static UserEntity createUserForLogin(String userId, String userPass) {
 		UserEntity userEntity = new UserEntity();

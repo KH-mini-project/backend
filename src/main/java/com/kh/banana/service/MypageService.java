@@ -1,5 +1,6 @@
 package com.kh.banana.service;
 
+import com.kh.banana.dto.response.UserProfileResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -13,5 +14,4 @@ public interface MypageService {
 	ResponseEntity<?> updateUser(UpdateUserDTO dto, MultipartFile userProfile);
 
 	ResponseEntity<?> findUserPost(String userId);
-
 }
