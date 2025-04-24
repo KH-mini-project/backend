@@ -2,6 +2,8 @@ package com.kh.banana.service.impl;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import com.kh.banana.dto.response.UserProfileResponseDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,5 +47,4 @@ public class DefaultMypageService implements MypageService{
 		 List<PostSimpleResponseDTO> result = posts.stream().map(PostSimpleResponseDTO::fromEntity).collect(Collectors.toList());
 		return ResponseEntity.ok(result);
 	}
-	
 }
