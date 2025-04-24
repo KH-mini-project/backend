@@ -4,6 +4,8 @@ import com.kh.banana.dto.response.PostSimpleResponseDTO;
 import com.kh.banana.entity.PostEntity;
 import com.kh.banana.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +19,7 @@ public class PostSimpleService implements com.kh.banana.service.PostSimpleServic
 
     @Override
     public List<PostSimpleResponseDTO> getPostListForMainPage() {
-        List<PostEntity> postEntities = postRepository.findAll();
+        List<PostEntity> postEntities = postRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
         return postEntities.stream()
                 .map(PostSimpleResponseDTO::fromEntity)
                 .collect(Collectors.toList());
