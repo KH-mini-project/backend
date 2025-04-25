@@ -31,7 +31,7 @@ public class PostEntity extends BaseEntity{
 	@JoinColumn(name = "user_id",nullable = false) // Post 테이블에 생기는 FK 컬럼
 	private UserEntity user; // writerId로 필드명 만들면 gpt가 계속 writer로 만들라고 뭐라함.
 
-	@OneToMany(mappedBy="post")
+	@OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
 	private List<CommentEntity> comment = new ArrayList<>();
 
 	public static PostEntity createPostEntity(String postTitle, String postContent, String thumbnail, UserEntity user) {
