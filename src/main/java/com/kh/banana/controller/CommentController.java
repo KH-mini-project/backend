@@ -19,7 +19,7 @@ public class CommentController {
     // 댓글 저장 후, 최신 댓글 목록 반환(갱신)
     @PostMapping("/{postId}")
     public List<CommentResponseDTO> createComment(
-            @PathVariable Long postId,
+            @PathVariable(value = "postId") Long postId,
             @RequestBody CommentRequestDTO requestDTO,
             @RequestHeader("X-USER-ID") Long userId
     ) {
@@ -29,7 +29,7 @@ public class CommentController {
 
     // 특정 게시글의 전체 댓글 조회
     @GetMapping("/{postId}")
-    public List<CommentResponseDTO> getComments(@PathVariable Long postId) {
+    public List<CommentResponseDTO> getComments(@PathVariable(value = "postId") Long postId) {
         return commentImplService.getCommentsByPostId(postId);
     }
 

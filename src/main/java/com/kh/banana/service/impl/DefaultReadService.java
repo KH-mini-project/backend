@@ -17,6 +17,7 @@ public class DefaultReadService implements ReadService{
 	
 	@Override
 	public ResponseEntity<?> deletePost(Long postId) {
+		
 		PostEntity post = postRepo.findById(postId).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 존재하지 않습니다."));
 		postRepo.delete(post);
 		return ResponseEntity.ok("성공!");
