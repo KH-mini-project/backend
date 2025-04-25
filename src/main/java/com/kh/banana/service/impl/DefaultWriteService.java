@@ -8,7 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.kh.banana.dto.request.PostImageResponseDTO;
 import com.kh.banana.dto.request.PostRequestDTO;
+import com.kh.banana.dto.request.PostUpdateRequestDTO;
 import com.kh.banana.dto.response.PostIdResponseDTO;
+import com.kh.banana.dto.response.PostTitleAndContentResponseDTO;
 import com.kh.banana.entity.PostEntity;
 import com.kh.banana.entity.UserEntity;
 import com.kh.banana.repository.PostRepository;
@@ -16,6 +18,7 @@ import com.kh.banana.repository.UserRepository;
 import com.kh.banana.service.WriteService;
 import com.kh.banana.util.S3ServiceUtil;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -46,5 +49,25 @@ public class DefaultWriteService implements WriteService {
 		System.out.println(imageUrl);
 		return ResponseEntity.ok(imageUrl);
 	}
+
+	@Override
+	public ResponseEntity<?> getPost(Long postId) {
+		PostEntity post = postRepo.findById(postId)
+		        .orElseThrow(() -> new EntityNotFoundException("게시물이 존재하지 않습니다."));
+		PostTitleAndContentResponseDTO dto = PostTitleAndContentResponseDTO.fromEntity(post);
+		return ResponseEntity.ok(dto);
+	}
+
+	@Override
+	public ResponseEntity<?> updatePost(PostUpdateRequestDTO dto) {
+		PostEntity post = postRepo.findById(dto.getPostId())
+		        .orElseThrow(() -> new EntityNotFoundException("게시물이 존재하지 않습니다."));
+		post.updatePostData(dto);
+		postRepo.save(post);
+		PostIdResponseDTO result = PostIdResponseDTO.fromEntity(post);
+		System.out.println("수정 값" + result.getId());
+		return ResponseEntity.ok(result);
+	}
+
 
 }

@@ -2,6 +2,9 @@ package com.kh.banana.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.kh.banana.dto.request.PostUpdateRequestDTO;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -41,5 +44,10 @@ public class PostEntity extends BaseEntity{
 		postEntity.thumbnail = thumbnail;
 		postEntity.user = user;
 		return postEntity;
+	}
+	public void updatePostData(PostUpdateRequestDTO dto) {
+	    this.postTitle = dto.getPostTitle();
+	    this.postContent = dto.getPostContent();
+	    this.thumbnail = dto.getThumbnail();
 	}
 }
