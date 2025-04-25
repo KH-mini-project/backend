@@ -32,4 +32,12 @@ public class CommentController {
     public List<CommentResponseDTO> getComments(@PathVariable(value = "postId") Long postId) {
         return commentImplService.getCommentsByPostId(postId);
     }
+
+    @DeleteMapping("/delete/{commentId}")
+    public void deleteComment(
+            @PathVariable Long commentId,
+            @RequestHeader("X-USER-ID") Long userId) {
+        commentImplService.deleteComments(commentId);
+    }
+
 }
